@@ -8,8 +8,8 @@
 </style>
 </head>
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The Colective Teambuilding story.</tw-noscript></noscript></tw-story>
-<tw-storydata name="The Colective Teambuilding story" startnode="66" creator="Twine" creator-version="2.6.1" format="Harlowe" format-version="3.3.4" ifid="05A74688-292E-4FAC-B2B0-9764298CC135" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The Collective Teambuilding story.</tw-noscript></noscript></tw-story>
+<tw-storydata name="The Collective Teambuilding story" startnode="66" creator="Twine" creator-version="2.6.1" format="Harlowe" format-version="3.3.4" ifid="05A74688-292E-4FAC-B2B0-9764298CC135" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
 
 body {
@@ -36,6 +36,10 @@ color: white;
 tw-dialog {
 font-family: 'Josefin Sans';
 color: white;
+max-height: 80vh;
+overflow-y: auto;
+scrollbar-width: thin;
+scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 .enchantment-link, tw-link {
 	color: #699999;
@@ -53,13 +57,16 @@ color: white;
 }
 
 tw-story {
- 
+
  font-family: 'Josefin Sans';
  color: white;
     background: linear-gradient(-45deg, #110000, #001100, #000011, #010101);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 html.injury tw-story {
@@ -103,9 +110,28 @@ html.checkpoint tw-story {
     background-position: 0% 50%;
   }
 }
+
+tw-story::-webkit-scrollbar {
+  width: 8px;
+}
+tw-story::-webkit-scrollbar-track {
+  background: transparent;
+}
+tw-story::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+tw-story::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 480px) {
+  body { font-size: 13px; }
+  tw-story { padding: 3% 4% !important; }
+}
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="Checkpoint" color="green"></tw-tag><tw-tag name="Death" color="red"></tw-tag><tw-tag name="-5life" color="orange"></tw-tag><tw-tag name="-10life" color="orange"></tw-tag><tw-tag name="-30life" color="orange"></tw-tag><tw-tag name="good-1" color="yellow"></tw-tag><tw-tag name="good+1" color="purple"></tw-tag><tw-tag name="good-2" color="yellow"></tw-tag><tw-tag name="-20life" color="orange"></tw-tag><tw-tag name="river" color="blue"></tw-tag><tw-tag name="no-header" color="purple"></tw-tag><tw-tag name="no-footer" color="purple"></tw-tag><tw-tag name="TEST" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="no-footer" position="775,400" size="100,100">(set:$chapter to &quot;Prologue&quot;)(replace: ?chapter)[$chapter]It&#39;s the year 2735, and there has been peace on Earth for two centuries. This peace has allowed mankind to make technological progress beyond imagination. In 2602, the first Intergalactic Starship Association (ISA) was formed, and for the past century, humans have been exploring the universe, searching for other life and planets to settle.
 
-You are the crew of a starship called The Collective. 24 hours ago, you reached a planet that appears to have signs of life from orbit. As per protocol, you dispatched a module to land on the planet and investigate. The module contained a humanoid robot called &quot;Humanoid Artificial iNteligence K-215,&quot; but everyone just calls him Hank. While Hank is an artificial intelligence, he is not very intelligent and lacks emotions. As a safety precaution, major decisions must be made by humans.
+You are the crew of a starship called The Collective. 24 hours ago, you reached a planet that appears to have signs of life from orbit. As per protocol, you dispatched a module to land on the planet and investigate. The module contained a humanoid robot called &quot;Humanoid Artificial iNtelligence K-215,&quot; but everyone just calls him Hank. While Hank is an artificial intelligence, he is not very intelligent and lacks emotions. As a safety precaution, major decisions must be made by humans.
 
 Hank is not completely useless, however. He has an advanced natural language interface that can speak all human languages and easily adapt to new forms of communication. His core has also been trained to communicate with animals (although they usually don&#39;t have much to say), so it is safe to assume that Hank could communicate with alien forms of life as well.
 
@@ -122,7 +148,7 @@ Now you realize that this is the first time Hank has used the words &quot;I&quot
 
 &quot;Awaiting instructions...&quot;
 
-[[Proceed-&gt;Room]](set: $battery to 98)(set: $condition to 80)</tw-passagedata><tw-passagedata pid="3" name="Room" tags="" position="1150,400" size="100,100">(set:$chapter to &quot;Chapter 1&quot;)(replace: ?chapter)[$chapter]Hank is awaiting instructions. You can either ask him to scan the surroundings or ask to describe more how he &quot;feels&quot;. What will you do?
+[[Proceed-&gt;Room]](set: $battery to 98)(set: $condition to 80)(set: $death to 0)</tw-passagedata><tw-passagedata pid="3" name="Room" tags="" position="1150,400" size="100,100">(set:$chapter to &quot;Chapter 1&quot;)(replace: ?chapter)[$chapter]Hank is awaiting instructions. You can either ask him to scan the surroundings or ask to describe more how he &quot;feels&quot;. What will you do?
 
 [[Scan the surroundings-&gt;Scan]]
 [[Ask how he feels-&gt;Feeling]]
@@ -139,7 +165,7 @@ Here are few things you should know:
 * There will be checkpoints during your adventure, if Hank accidentally dies, you may return to last checkpoint or start over
 * Every decision you make, may have significant impact on how the story evolves and ends
 
-Enjoy - I hope this is going to be fun and a unique experience for you], &quot;Sure. Let&#39;s do this!&quot;)}</tw-passagedata><tw-passagedata pid="4" name="Scan" tags="" position="1150,525" size="100,100">(set: $battery to $battery-1)&quot;Scan complete. I am in some sort of room, it&#39;s dark here therefore I have switched to night vision to see something. Room is square shaped with primitive but solid walls made of stone and clay, without widows. There&#39;s just something that looks like door on one side. Handle is missing, door seem locked from the outside. Oh that&#39;s scary! Am I a prisoner of some sort?&quot;. The last words Hank said were delivered with shaking voice. Is Hank afraid?
+Enjoy - I hope this is going to be fun and a unique experience for you], &quot;Sure. Let&#39;s do this!&quot;)}</tw-passagedata><tw-passagedata pid="4" name="Scan" tags="" position="1150,525" size="100,100">(set: $battery to $battery-1)&quot;Scan complete. I am in some sort of room, it&#39;s dark here therefore I have switched to night vision to see something. Room is square shaped with primitive but solid walls made of stone and clay, without windows. There&#39;s just something that looks like door on one side. Handle is missing, door seem locked from the outside. Oh that&#39;s scary! Am I a prisoner of some sort?&quot;. The last words Hank said were delivered with shaking voice. Is Hank afraid?
 
 &quot;There is a piece of wood in the corner of the room, thick as my arm, roughly a 1 meter (that&#39;s over 3 ft) long. I tried lifting it, weights about 4 kilograms (almost 9 pounds), solid. Otherwise there&#39;s nothing else in the room.&quot;
 
@@ -170,7 +196,7 @@ What should Hank do now?
 (set: $battery to $battery-5)
 &quot;Yay! Success! But I feel a bit tired now - checking battery levels... Battery at (print: $battery)%. Let me look around for a wee bit...&quot;
 
-Hanks looks around and returns to you with following description:
+Hank looks around and returns to you with following description:
 
 &quot;Seems I am in a hallway, right in front of me are similar door to the ones I just broke open, handle is there, but they seem locked. To the left the hallway seems to end with a wall, to the right the path continues behind the corner. I can see some dim light from behind the corner. Awaiting instructions.&quot;
 
@@ -200,8 +226,8 @@ You asked Hank what did he do and responded that he tried if the knife would cut
 [[Ask Hank to take the knife with him and go back, follow the light-&gt;Checkpoint 1]](set: $knife to 1)
 
 </tw-passagedata><tw-passagedata pid="10" name="Checkpoint 1" tags="" position="1300,1000" size="100,100">//Checkpoint//
-{(if:visits is 1)[(set: $chk1battery to $battery)(set: $chk1condition to $condition)(set: $chk1good to $good)]
-(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk1battery)(set: $condition to $chk1condition)(set: $good to $chk1good)]
+{(if:visits is 1)[(set: $chk1battery to $battery)(set: $chk1condition to $condition)(set: $chk1good to $good)(set: $chk1knife to $knife)]
+(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk1battery)(set: $condition to $chk1condition)(set: $good to $chk1good)(set: $knife to $chk1knife)]
 (set: $battery to $battery-1)(set:$snake to 0)}&lt;script&gt;$(&#39;html&#39;).addClass(&#39;checkpoint&#39;);&lt;/script&gt;
 Hank reaches the corner and slowly takes a look. He sees the source of the dim light. &quot;It looks like a window of some sorts, folks, but the material is not really transparent as you would expect form a glass. Looks like an orange crystal - there&#39;s no handle and I see no way of opening this without breaking it. But I am almost certain that behind this window is some source of bright light, probably sun. The corridor continues straight ahead, but I can see some door at the end. What should I do?&quot;
 
@@ -224,7 +250,7 @@ Hank reaches the corner and slowly takes a look. He sees the source of the dim l
 
 </tw-passagedata><tw-passagedata pid="13" name="Window breaking" tags="" position="1100,1025" size="100,100">(set: $battery to $battery-1)Hank follows your instructions. First he tries to break the window with his elbow, but that doesn&#39;t do the trick. Luckily Hank did not harm himself. Then he brought the wooden battering ram and tried again. With a sound of shattering glass the crystal breaks into many pieces and reveals an impressive view for Hank.
 
-&quot;Beautiful! Folks, I am sorry you cannot see what I see, but let me try to describe it. First of all it looks like I am in some sort of tower or rather tall structure. When I lean out I can see that I am at least 15 meters above ground, that&#39;s like 50 feet. But, boy, oh boy, the view is beautiful. Blue sky, sun is shining and I can see a river on a horizon. And there is a forrest of some sort too! I don&#39;t recognize the flora, but it looks like a jungle.&quot; You can almost feel the emotions in his speech, how strange! You were used to the old Hank, whose voice was calm and emotions free but now you really feel like talking to another man, not a machine. &quot;And there! On the left in the distance I can see the module! If I get to it I could return to the starship immediatelly&quot;
+&quot;Beautiful! Folks, I am sorry you cannot see what I see, but let me try to describe it. First of all it looks like I am in some sort of tower or rather tall structure. When I lean out I can see that I am at least 15 meters above ground, that&#39;s like 50 feet. But, boy, oh boy, the view is beautiful. Blue sky, sun is shining and I can see a river on a horizon. And there is a forest of some sort too! I don&#39;t recognize the flora, but it looks like a jungle.&quot; You can almost feel the emotions in his speech, how strange! You were used to the old Hank, whose voice was calm and emotions free but now you really feel like talking to another man, not a machine. &quot;And there! On the left in the distance I can see the module! If I get to it I could return to the starship immediately&quot;
 
 &quot;I could try to climb down the wall to the ground. It is not completely flat, with some luck I should be able to do this - but it&#39;s risky. Also my battery level is (print:$battery)% I could wait for an hour in the sunlight and get it restored to 100% and continue through the door. I don&#39;t know how to decide, awaiting instructions.&quot;
 
@@ -243,7 +269,7 @@ What will you recommend?
 [[Advise Hank to go downstairs-&gt;Checkpoint 2]]
 
 
-</tw-passagedata><tw-passagedata pid="15" name="Climb" tags="Death no-footer" position="1375,1250" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;&quot;OKay, OKay! I can do this!&quot; you could swear you heard that Hanks voice is shaking. Is he afraid?
+</tw-passagedata><tw-passagedata pid="15" name="Climb" tags="Death no-footer" position="1375,1250" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;&quot;OKay, OKay! I can do this!&quot; you could swear you heard that Hank&#39;s voice is shaking. Is he afraid?
 
 &quot;I am slowly climbing down. Cross your fingers!&quot;
 
@@ -256,7 +282,7 @@ The contact with the ground was lethal. Hank was not able to send any additional
 You can:
 (link:&quot;Start over&quot;)[(restart:)] or [[continue from last checkpoint-&gt;Checkpoint 1]]</tw-passagedata><tw-passagedata pid="16" name="Recharge" tags="" position="975,1075" size="100,100">You advised Hank to stay in the sunlight for an hour and to have the time pass quicker, you talked. You discussed all sorts of random things, because you were interested to learn how will Hank respond with his newly acquired ability to feel. Or at least simulate emotions.
 (set:$battery to $battery-5)
-After an hour Hank says: &quot;Well, time flies when you have something to talk about! I completely forgot to check the battery status. Wait, what is this? No, no, no, this can&#39;t be right.... Battery is not charging as it should! In fact the hour of talking costed me additional 5%! The solar panel must be broken too... Am I going to die?&quot;
+After an hour Hank says: &quot;Well, time flies when you have something to talk about! I completely forgot to check the battery status. Wait, what is this? No, no, no, this can&#39;t be right.... Battery is not charging as it should! In fact the hour of talking cost me additional 5%! The solar panel must be broken too... Am I going to die?&quot;
 
 [[Take the risk and advise Hank to climb down-&gt;Climb]]
 [[Ignore the window and proceed to the door-&gt;3rd door]]
@@ -270,10 +296,10 @@ After an hour Hank says: &quot;Well, time flies when you have something to talk 
 
 
 </tw-passagedata><tw-passagedata pid="18" name="Checkpoint 2" tags="" position="1100,1600" size="100,100">//Checkpoint//
-{(if:visits is 1)[(set: $chk2battery to $battery)(set: $chk2condition to $condition)(set: $chk2good to $good)(set: $chk2knife to $knife)(set: $chk2kill to $kill)]
-(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk2battery)(set: $condition to $chk2condition)(set: $good to $chk2good)(set: $knife to $chk2knife)(set: $kill to $chk2kill)]
+{(if:visits is 1)[(set: $chk2battery to $battery)(set: $chk2condition to $condition)(set: $chk2good to $good)(set: $chk2knife to $knife)(set: $chk2kill to $kill)(set: $chk2snake to $snake)]
+(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk2battery)(set: $condition to $chk2condition)(set: $good to $chk2good)(set: $knife to $chk2knife)(set: $kill to $chk2kill)(set: $snake to $chk2snake)]
 (set: $battery to $battery-1)(set: $textread to 0)(set: $canread to 0)(set: $ring to 0)}&lt;script&gt;$(&#39;html&#39;).addClass(&#39;checkpoint&#39;);&lt;/script&gt;
-Hank descends to a lower level. &quot;I see door here with some weird symbols. I cannot decypher this, too little data. The stair also continues further down. What do you want me to do? Should I try walking through the door or continue downstairs?&quot;
+Hank descends to a lower level. &quot;I see door here with some weird symbols. I cannot decipher this, too little data. The stair also continues further down. What do you want me to do? Should I try walking through the door or continue downstairs?&quot;
 
 [[Advise Hank to continue through the door-&gt;Storage]]
 [[Advise Hank to ignore the door and continue downstairs-&gt;Bottom level]]
@@ -281,7 +307,7 @@ Hank descends to a lower level. &quot;I see door here with some weird symbols. I
 
 </tw-passagedata><tw-passagedata pid="19" name="Roof" tags="" position="825,1425" size="100,100">(set: $battery to $battery-1)Hank opens the door. &quot;Whoa, guys! I am on a roof of some sort! What a view! I can see the module down there in the distance, river and a jungle on one side and on the other side I can see plains and mountains in the back! I can also see that I am on a building that is part of a smaller village of some sorts - but can&#39;t see any inhabitants nearby. From looking at the wall, I am roughly 20 meters above the ground, that&#39;s like 65 feet &quot;
 
-You can hear the joy and surprise in Hanks voice. Nope, it&#39;s definitelly not the same robot you knew before - he changed.
+You can hear the joy and surprise in Hank&#39;s voice. Nope, it&#39;s definitely not the same robot you knew before - he changed.
 
 &quot;Hey what&#39;s that? Hold on I&#39;ll check it...&quot; said Hank. &quot;It looks like a rope of some sorts, it&#39;s curled up. I could use it to climb down safely, I assume. Awaiting instructions.&quot;
 
@@ -303,7 +329,7 @@ With a shaken voice Hank continues: &quot;And it&#39;s gone... No rope guys. Luc
 
 </tw-passagedata><tw-passagedata pid="21" name="Recharge(roof)" tags="" position="950,1450" size="100,100">You advised Hank to stay in the sunlight for an hour and to have the time pass quicker, you talked. You discussed all sorts of random things, because you were interested to learn how will Hank respond with his newly acquired ability to feel. Or at least simulate emotions.
 (set:$battery to $battery-5)
-After an hour Hank says: &quot;Well, time flies when you have something to talk about! I completely forgot to check the battery status. Wait, what is this? No, no, no, this can&#39;t be right.... Battery is not charging as it should! In fact the hour of talking costed me additional 5%! The solar panel must be broken too... Am I going to die?&quot;
+After an hour Hank says: &quot;Well, time flies when you have something to talk about! I completely forgot to check the battery status. Wait, what is this? No, no, no, this can&#39;t be right.... Battery is not charging as it should! In fact the hour of talking cost me additional 5%! The solar panel must be broken too... Am I going to die?&quot;
 
 (if:(history: where its name contains &quot;Rope&quot;)&#39;s length is 0)[[[Advise Hank to pick up the rope and see if he could use it to climb down safely-&gt;Rope]]]
 [[Advise Hank to ignore the rope and instead attempt to climb down on his own-&gt;Climb]]
@@ -331,9 +357,9 @@ page color - heal
 
 (enchant:?page,(bg:(gradient: 0, 0,#30aa30,0.5,#000000,1,#000000)))Your Text Here
 
-</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="" position="950,1750" size="100,100">(set: $battery to $battery-1)Hank slowly and carefully opens the door with strange symbols. &quot;Looks like noone is here. I am in a room, which is long and wide. There&#39;s a lot of stuff in here. In the center of the room is something that looks like a wooden rectangular table, it&#39;s covered with some sheets of paper. In one corner I can see a pile of assorted things, looks like garbage from here but might be worth checking. On the wall there seems to be some text. Awaiting instructions.&quot;
+</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="" position="950,1750" size="100,100">(set: $battery to $battery-1)Hank slowly and carefully opens the door with strange symbols. &quot;Looks like no one is here. I am in a room, which is long and wide. There&#39;s a lot of stuff in here. In the center of the room is something that looks like a wooden rectangular table, it&#39;s covered with some sheets of paper. In one corner I can see a pile of assorted things, looks like garbage from here but might be worth checking. On the wall there seems to be some text. Awaiting instructions.&quot;
 
-(link:&quot;Check the table&quot;)[Hank browses through enourmous amount of sheets of what looks like a paper. It is covered with similar symbols he saw on the door and on the wall in this room. Hank takes time and carefully scans each page. As a robot, his machine learning capabilities allow him to soon start understanding meaning of each symbol. &quot;Folks! I think I have just learned the language! These papers are covered with various notes, some look like a research, some look like parts of diary a some are just weird and obscene drawings. Nothing too important I&#39;d say.&quot; (set: $canread to 1)]
+(link:&quot;Check the table&quot;)[Hank browses through enormous amount of sheets of what looks like a paper. It is covered with similar symbols he saw on the door and on the wall in this room. Hank takes time and carefully scans each page. As a robot, his machine learning capabilities allow him to soon start understanding meaning of each symbol. &quot;Folks! I think I have just learned the language! These papers are covered with various notes, some look like a research, some look like parts of diary a some are just weird and obscene drawings. Nothing too important I&#39;d say.&quot; (set: $canread to 1)]
 [[Attempt to read the text on the wall-&gt;Text on the wall]]
 [[Ask Hank to inspect the pile of things-&gt;Pile]]
 [[Leave the room and continue downstairs-&gt;Bottom level]]
@@ -345,9 +371,9 @@ page color - heal
 [[Ask Hank to continue walking the corridor-&gt;Exit]]
 
 
-</tw-passagedata><tw-passagedata pid="25" name="Text on the wall" tags="" position="800,1775" size="100,100">(if: $canread is 1)[Thanks to Hanks acquired ability to read in this new language he is able to decypher the text on the wall: &quot;The text is saying &#39;Put all the useless junk in the corner and keep this place clean. This is not a toilet, Meredith, so if we see you defecating on the premises again, we will throw you in one of the cells above and leave you there forever!&#39;&quot; (set: $textread to 1)](if: $canread is 0)[Hank looks at the symbols, but cannot understand them]
-(if: $canread is 0)[(link:&quot;Check the table&quot;)[Hank browses through enourmous amount of sheets of what looks like a paper. It is covered with similar symbols he saw on the door and on the wall in this room. Hank takes time and carefully scans each page. As a robot, his machine learning capabilities allow him to soon start understanding meaning of each symbol. &quot;Folks! I think I have just learned the language! These papers are covered with various notes, some look like a research, some look like parts of diary a some are just weird and obscene drawings. Nothing too important I&#39;d say.&quot; (set: $canread to 1)
-Thanks to Hanks acquired ability to read in this new language he is able to decypher the text on the wall: &quot;The text is saying &#39;Put all the useless junk in the corner and keep this place clean. This is not a toilet, Meredith, so if we see you defecating on the premises again, we will throw you in one of the cells above and leave you there forever!&#39;&quot; (set: $textread to 1)]]
+</tw-passagedata><tw-passagedata pid="25" name="Text on the wall" tags="" position="800,1775" size="100,100">(if: $canread is 1)[Thanks to Hank&#39;s acquired ability to read in this new language he is able to decipher the text on the wall: &quot;The text is saying &#39;Put all the useless junk in the corner and keep this place clean. This is not a toilet, Meredith, so if we see you defecating on the premises again, we will throw you in one of the cells above and leave you there forever!&#39;&quot; (set: $textread to 1)](if: $canread is 0)[Hank looks at the symbols, but cannot understand them]
+(if: $canread is 0)[(link:&quot;Check the table&quot;)[Hank browses through enormous amount of sheets of what looks like a paper. It is covered with similar symbols he saw on the door and on the wall in this room. Hank takes time and carefully scans each page. As a robot, his machine learning capabilities allow him to soon start understanding meaning of each symbol. &quot;Folks! I think I have just learned the language! These papers are covered with various notes, some look like a research, some look like parts of diary a some are just weird and obscene drawings. Nothing too important I&#39;d say.&quot; (set: $canread to 1)
+Thanks to Hank&#39;s acquired ability to read in this new language he is able to decipher the text on the wall: &quot;The text is saying &#39;Put all the useless junk in the corner and keep this place clean. This is not a toilet, Meredith, so if we see you defecating on the premises again, we will throw you in one of the cells above and leave you there forever!&#39;&quot; (set: $textread to 1)]]
 (if:(history: where its name contains &quot;Pile&quot;)&#39;s length is 0)[[[Ask Hank to inspect the pile of things-&gt;Pile]]]
 [[Leave the room and continue downstairs-&gt;Bottom level]]
 
@@ -364,7 +390,7 @@ For a minute you don&#39;t hear anything as Hank is browsing through the stuff b
 
 Well that&#39;s a success isn&#39;t it? What do you want me to do now?&quot;
 
-(if:$canread is 0)[(link:&quot;Check the table&quot;)[Hank browses through enourmous amount of sheets of what looks like a paper. It is covered with similar symbols he saw on the door and on the wall in this room. Hank takes time and carefully scans each page. As a robot, his machine learning capabilities allow him to soon start understanding meaning of each symbol. &quot;Folks! I think I have just learned the language! These papers are covered with various notes, some look like a research, some look like parts of diary a some are just weird and obscene drawings. Nothing too important I&#39;d say.&quot; (set: $canread to 1)]]
+(if:$canread is 0)[(link:&quot;Check the table&quot;)[Hank browses through enormous amount of sheets of what looks like a paper. It is covered with similar symbols he saw on the door and on the wall in this room. Hank takes time and carefully scans each page. As a robot, his machine learning capabilities allow him to soon start understanding meaning of each symbol. &quot;Folks! I think I have just learned the language! These papers are covered with various notes, some look like a research, some look like parts of diary a some are just weird and obscene drawings. Nothing too important I&#39;d say.&quot; (set: $canread to 1)]]
 (if:$textread is 0)[[Attempt to read the text on the wall-&gt;Text on the wall]]
 [[Leave the room and continue downstairs-&gt;Bottom level]]
 
@@ -404,7 +430,7 @@ Hank tells you &quot;Oddly enough it is not attacking me yet. Any word of advice
 [[Tell Hank to wait for the creature&#39;s first move and if needed fight defensively-&gt;Knife defensive kitchen]]
 
 
-</tw-passagedata><tw-passagedata pid="31" name="Run away kitchen" tags="no-footer" position="875,2050" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;The only way to run away is to turn Hanks back towards the creature. Hanks starts running away from the room but suddenly you hear Hanks shriek: &quot;Aaargh&quot;. Hank falls to the ground and notices a knife is stuck in his calf. He raises his head just in time to see the creature&#39;s massive fangs closing the gap to his face. 
+</tw-passagedata><tw-passagedata pid="31" name="Run away kitchen" tags="no-footer" position="875,2050" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;The only way to run away is to turn Hank&#39;s back towards the creature. Hank starts running away from the room but suddenly you hear Hank&#39;s shriek: &quot;Aaargh&quot;. Hank falls to the ground and notices a knife is stuck in his calf. He raises his head just in time to see the creature&#39;s massive fangs closing the gap to his face. 
 
 [[Proceed...-&gt;Death in kitchen]]
 
@@ -424,7 +450,7 @@ In two seconds you hear Hank screaming with pain. Your data show that Hank&#39;s
 
 
 You can:
-(link:&quot;Start over&quot;)[(restart:)] or [[continue from last checkpoint-&gt;Checkpoint 2]]](if: $condition &gt; 30)[&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;Hank is still not in critical condition and that allows him to swiftly avoid the creature&#39;s incoming attack and kick the knife out of the creature&#39;s hand. Creature opens it&#39;s mouth and reveals a number of sharp fangs. It manages to bite Hanks arm and Hank suffers 10% damage to his condition(set: $condition to $condition-10)(set:$damage to 1). But Hank does instinctlively fight back and a strong blow to creature&#39;s head succeeds at knocking it unconscious.
+(link:&quot;Start over&quot;)[(restart:)] or [[continue from last checkpoint-&gt;Checkpoint 2]]](if: $condition &gt; 30)[&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;Hank is still not in critical condition and that allows him to swiftly avoid the creature&#39;s incoming attack and kick the knife out of the creature&#39;s hand. Creature opens it&#39;s mouth and reveals a number of sharp fangs. It manages to bite Hank&#39;s arm and Hank suffers 10% damage to his condition(set: $condition to $condition-10)(set:$damage to 1). But Hank does instinctlively fight back and a strong blow to creature&#39;s head succeeds at knocking it unconscious.
 
 Hank sits on the floor next to the creature and summarizes impact for you.
 
@@ -460,7 +486,7 @@ There&#39;s nothing else that could be done here so you [[ask Hank to get out of
 There&#39;s nothing else that could be done here so you [[Ask Hank to get out of there and get back to the corridor -&gt;Exit]]
 
 
-</tw-passagedata><tw-passagedata pid="37" name="Knife attack kitchen" tags="-10life good-1" position="775,2450" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;Hank immediatelly leaps forward attacking the creature with a knife. His first hit was successful and he stabbed the creature in it&#39;s belly. A loud shriek breaks the silence. The hit was not lethal so the creature fought back, stabbing its knife in Hanks shoulder. Hank tripped the creature and as a trained killer slit the creature&#39;s throat.
+</tw-passagedata><tw-passagedata pid="37" name="Knife attack kitchen" tags="-10life good-1" position="775,2450" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;Hank immediately leaps forward attacking the creature with a knife. His first hit was successful and he stabbed the creature in it&#39;s belly. A loud shriek breaks the silence. The hit was not lethal so the creature fought back, stabbing its knife in Hank&#39;s shoulder. Hank tripped the creature and as a trained killer slit the creature&#39;s throat.
 
 &quot;Ughh... that was .... ughh....&quot; You can hear Hank breathing heavily and even though you know that he - as a machine that he is - doesn&#39;t need to breathe, you recognize this as a sign of stress. During this fight Hank suffered 10% damage to his health condition and battery drained by additional 10%. (set: $condition to $condition-10)(set:$damage to 1)(set: $battery to $battery-10)(set: $good to $good-1)(set: $creatureKO to &quot;harmless&quot;)(set: $kill to $kill+1)
 
@@ -495,28 +521,28 @@ The creature falls down to the ground unconscious. &quot;Whoa! That was.... some
 
 
 </tw-passagedata><tw-passagedata pid="40" name="Checkpoint 3" tags="" position="1250,2600" size="100,100">(set:$chapter to &quot;Chapter 2&quot;)(replace: ?chapter)[$chapter]//Checkpoint//
-{(if:visits is 1)[(set: $chk3battery to $battery)(set: $chk3condition to $condition)(set: $chk3good to $good)(set: $chk3knife to $knife)(set: $chk3canread to $canread)(set: $chk3ring to $ring)(set: $chk3creatureKO to $creatureKO)(set: $chk3kill to $kill)]
-(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk3battery)(set: $condition to $chk3condition)(set: $good to $chk3good)(set: $knife to $chk3knife)(set: $canread to $chk3canread)(set: $ring to $chk3ring)(set: $creatureKO to $chk3creatureKO)(set: $kill to $chk3kill)]
+{(if:visits is 1)[(set: $chk3battery to $battery)(set: $chk3condition to $condition)(set: $chk3good to $good)(set: $chk3knife to $knife)(set: $chk3canread to $canread)(set: $chk3ring to $ring)(set: $chk3creatureKO to $creatureKO)(set: $chk3kill to $kill)(set: $chk3snake to $snake)(set: $chk3canspeak to $canspeak)]
+(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk3battery)(set: $condition to $chk3condition)(set: $good to $chk3good)(set: $knife to $chk3knife)(set: $canread to $chk3canread)(set: $ring to $chk3ring)(set: $creatureKO to $chk3creatureKO)(set: $kill to $chk3kill)(set: $snake to $chk3snake)(set: $canspeak to $chk3canspeak)]
 (set: $canspeak to 0)(set: $help to 0)(set: $chest to 0)(set: $latrine to 0)(set: $ditka to 0)(set: $ditkafriendly to 0)}&lt;script&gt;$(&#39;html&#39;).addClass(&#39;checkpoint&#39;);&lt;/script&gt;
 After a minute, Hank establishes another connection. &quot;It looks like I&#39;m in the clear now and ready to take the next step. Opposite the exit, I see some sort of village. A couple of strange houses, mostly small structures with windows made of the same orange crystal I&#39;ve seen in the building earlier. The place seems quite peaceful. To the right, the path ends at a primitive but tall fence or wall of some sort - a dead end. To the left, the path continues into the forest. What should I do?&quot;
 
-(if:$solar_not_working is 0)[(t8n:&quot;dissolve&quot;)+(link:&quot;Ask Hank to find some safe spot around with sunlight to try recharging his battery&quot;)[You asked Hank to try recharging.
-&quot;Yes, I will try give me a sec.&quot; In a moment Hank tells you with a dissapointment in his voice: &quot;Shoot... It looks like my solar charger doesn&#39;t work at all even if I stay on a direct sunlight, it must be broken... I have $battery% left, I hope it will be sufficient to get me back to my module, where I have another backup battery available.&quot; (set:$solar_not_working to 1)
+(if:$solar_not_working is not 1)[(t8n:&quot;dissolve&quot;)+(link:&quot;Ask Hank to find some safe spot around with sunlight to try recharging his battery&quot;)[You asked Hank to try recharging.
+&quot;Yes, I will try give me a sec.&quot; In a moment Hank tells you with a disappointment in his voice: &quot;Shoot... It looks like my solar charger doesn&#39;t work at all even if I stay on a direct sunlight, it must be broken... I have $battery% left, I hope it will be sufficient to get me back to my module, where I have another backup battery available.&quot; (set:$solar_not_working to 1)
 ]]
 [[Ask Hank to go and check the fence on the right-&gt;Fence]]
 [[Ask Hank to go to the village-&gt;Village entry]]
-[[Ask Hank to proceed to the left and enter the forrest-&gt;Forrest path]]
+[[Ask Hank to proceed to the left and enter the forest-&gt;Forest path]]
 
 
 </tw-passagedata><tw-passagedata pid="41" name="Fence" tags="" position="1425,2625" size="100,100">(set: $battery to $battery-1)You told Hank to check the fence.
 
-(if:$good &lt; 0)[Hank responds with hints of anger in his voice: &quot;I told you that it is a dead end, don&#39;t you trust me?! No, I am not going to go there and waste time, now focus on what I am telling you! The only possible options are the village or the path to forrest!&quot; ...wait, what? Did Hank just refused to follow your instructions? It&#39;s a robot, a machine and as such he should obey. At first he started to feel emotions and now starts to think on his own?]
+(if:$good &lt; 0)[Hank responds with hints of anger in his voice: &quot;I told you that it is a dead end, don&#39;t you trust me?! No, I am not going to go there and waste time, now focus on what I am telling you! The only possible options are the village or the path to forest!&quot; ...wait, what? Did Hank just refused to follow your instructions? It&#39;s a robot, a machine and as such he should obey. At first he started to feel emotions and now starts to think on his own?]
 (if:$good &gt;-1)[Hank shrugs and tells you: &quot;I think that this path will not lead anywhere, but I will check it for you, give me a sec.&quot; In about a minute Hank tells you: &quot;Actually it&#39;s not just a fence, it has door, so I peaked in. My sensors picked up an unpleasant stench and I saw a big pile of something brownish and wet. Might be a primitive latrine.&quot;(set: $latrine to 1)]
 
 So what will be next step?
 (if:$good &gt;-1)[(link:&quot;Ask Hank to inspect the pile closely and thoroughly&quot;)[&quot;Blueh, is this a joke? Should I really stick my hands into a big pile of faeces? I rather won&#39;t, sorry&quot; Did Hank just refused to follow your instructions? It&#39;s a robot, a machine and as such he should obey. At first he started to feel emotions and now starts to think on his own?]]
 [[Ask Hank to go to the village-&gt;Village entry]]
-[[Ask Hank to proceed to the left and enter the forrest-&gt;Forrest path]]
+[[Ask Hank to proceed to the left and enter the forest-&gt;Forest path]]
 
 
 </tw-passagedata><tw-passagedata pid="42" name="Village entry" tags="" position="1425,2750" size="100,100">(set: $battery to $battery-1)Hank slowly and carefully approaches the village and pays attention to his surroundings.
@@ -526,14 +552,14 @@ Hank whispers &quot;I arrived at the first house, right behind the corner I can 
 [[Ask Hank to hide in the bush and observe-&gt;Hide in a bush]]
 [[Ask Hank to avoid the guards and walk around the house-&gt;Around the house]]
 [[Ask Hank to attack the guards and get their spears-&gt;Attack guards]]
-[[Ask Hank to return and take the forrest path instead-&gt;Forrest path]]
+[[Ask Hank to return and take the forest path instead-&gt;Forest path]]
 
 
-</tw-passagedata><tw-passagedata pid="43" name="Forrest path" tags="" position="1000,2900" size="100,100">(set: $battery to $battery-1)Hank carefully walks towards the forrest path. &quot;This looks like a frequently used path, I can see footsteps on the ground of different sizes. It&#39;s reasonably straight. On each side of the path are trees and bushes, I can see the forrest is rather dense and I hear various noises from its depths. If I was on Earth I&#39;d say the forrest is inhabited by various species of animals ranging from insects and birds to bigger beasts, but I am not on Earth, right? So it could be anything. On the other hand the path seems clear and noone is here now, so I&#39;ll continue following the path&quot;
+</tw-passagedata><tw-passagedata pid="43" name="Forest path" tags="" position="1000,2900" size="100,100">(set: $battery to $battery-1)Hank carefully walks towards the forest path. &quot;This looks like a frequently used path, I can see footsteps on the ground of different sizes. It&#39;s reasonably straight. On each side of the path are trees and bushes, I can see the forest is rather dense and I hear various noises from its depths. If I was on Earth I&#39;d say the forest is inhabited by various species of animals ranging from insects and birds to bigger beasts, but I am not on Earth, right? So it could be anything. On the other hand the path seems clear and no one is here now, so I&#39;ll continue following the path&quot;
 
 [[You can let Hank to continue staying on the path-&gt;Stay on path]]
 or
-[[You can ask Hank step into the forrest and walk along the path in shadows of trees and bushes-&gt;Shadows]]
+[[You can ask Hank step into the forest and walk along the path in shadows of trees and bushes-&gt;Shadows]]
 
 
 </tw-passagedata><tw-passagedata pid="44" name="Hide in a bush" tags="" position="1250,2750" size="100,100">(set: $battery to $battery-1)Hank silently sinks into the bushes and whispers: &quot;I feel like a spy, haha, they have no idea I am here. I can hear them loud and clear - they are speaking in very weird language, but if I listen long enough I might actually learn the language. What do you want me to do now?&quot; Hank is right, his machine learning capabilities really allow him to pick up languages rather quickly.
@@ -544,15 +570,15 @@ Or tell Hank that there&#39;s no time to waste time and instead..
 
 [[Ask him to make a surprise attack and get their spears-&gt;Attack guards]]
 [[Ask Hank to avoid the guards and walk around the house-&gt;Around the house]]
-[[Ask Hank to return and take the forrest path instead-&gt;Forrest path]]
+[[Ask Hank to return and take the forest path instead-&gt;Forest path]]
 
 
-</tw-passagedata><tw-passagedata pid="45" name="Around the house" tags="" position="1325,3000" size="100,100">(set: $battery to $battery-2)(if:$creatureKO is &quot;alive&quot;)[As soon as Hank starts walking around the house he tells you in whisper: &quot;Hold on, somethings going on... oh, that creature that attacked me in the kitchen, I did not immobilize it at all, it seems it woke up and now reached the guards and it&#39;s telling them something!&quot; Hank becomes silent for couple minutes and then he responds again: &quot;I had to hide, they are searching the village, I should be able to sneak out towards the forrest path, but anything associated with the village is off the table now, folks.&quot;
+</tw-passagedata><tw-passagedata pid="45" name="Around the house" tags="" position="1325,3000" size="100,100">(set: $battery to $battery-2)(if:$creatureKO is &quot;alive&quot;)[As soon as Hank starts walking around the house he tells you in whisper: &quot;Hold on, somethings going on... oh, that creature that attacked me in the kitchen, I did not immobilize it at all, it seems it woke up and now reached the guards and it&#39;s telling them something!&quot; Hank becomes silent for couple minutes and then he responds again: &quot;I had to hide, they are searching the village, I should be able to sneak out towards the forest path, but anything associated with the village is off the table now, folks.&quot;
 
-[[Ask Hank to return and take the forrest path-&gt;Forrest path]]](if:$creatureKO is not &quot;alive&quot;)[Hank walks around the house and whispers: &quot;I am able to sneak past couple of houses to get out of the guards sight. This looks like a rather unused path judging by the vegetation. I see that one of the houses has a window open, let me peak inside...&quot; You noticed that Hank did not ask if he should peak inside, he just did. &quot;It looks safe inside, the house is small, one room pretty much, one empty bed - or at least I think it is a bed - table and something that looks like a chest. Door on the other side of the house are closed. Should I sneak inside the house and check the chest? Anyway the path does continue to the wider square, but I see couple of more guards in there, pressing forward to the village might be dangerous so I&#39;d avoid doing that.&quot;
+[[Ask Hank to return and take the forest path-&gt;Forest path]]](if:$creatureKO is not &quot;alive&quot;)[Hank walks around the house and whispers: &quot;I am able to sneak past couple of houses to get out of the guards sight. This looks like a rather unused path judging by the vegetation. I see that one of the houses has a window open, let me peak inside...&quot; You noticed that Hank did not ask if he should peak inside, he just did. &quot;It looks safe inside, the house is small, one room pretty much, one empty bed - or at least I think it is a bed - table and something that looks like a chest. Door on the other side of the house are closed. Should I sneak inside the house and check the chest? Anyway the path does continue to the wider square, but I see couple of more guards in there, pressing forward to the village might be dangerous so I&#39;d avoid doing that.&quot;
 
 [[Allow Hank to sneak inside the house and check the chest-&gt;Chest]]
-[[Ask Hank to return and take the forrest path instead-&gt;Forrest path]]]
+[[Ask Hank to return and take the forest path instead-&gt;Forest path]]]
 
 
 </tw-passagedata><tw-passagedata pid="46" name="Attack guards" tags="Death no-footer" position="1400,2875" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;(if: $knife is 1)[Hank holds on to his knife and](if: $knife is 0)[Hank doesn&#39;t have any weapon so he] leaps to attack the guards directly. To gain some courage, he for some weird reason yells &quot;Geronimo!&quot; while approaching them. The guards did not expect this and Hank managed to hurt the guard closer to him. But that&#39;s all he could do before the other guard stabbed it&#39;s spear to his chest. Not long after the connection was lost as Hank suffered fatal injuries.
@@ -563,24 +589,24 @@ Or tell Hank that there&#39;s no time to waste time and instead..
 You can:
 (link:&quot;Start over&quot;)[(restart:)] or [[continue from last checkpoint-&gt;Checkpoint 3]]</tw-passagedata><tw-passagedata pid="47" name="Language" tags="" position="1250,2875" size="100,100">Hank follows your instruction, positioning himself quietly in the bushes to eavesdrop on the conversation.
 
-(if: $canread is 1)[Hank&#39;s prior knowledge of the symbols allows him to quickly grasp the pronunciation. In under 20 minutes, he whispers, &quot;I&#39;ve got it. I now understand their language and believe I&#39;ll be able to speak it fluently. The language is not very difficult, in fact each symbol represents a letter that has a clear pronunciation, and they have only 15 letters. Therefore, as long as you know how to pronounce each letter, you know how to speak. And because I learned quite a substantial vocabulary in the storage room, I believe I can say I learned their language.(set: $battery to $battery-3)](if: $canread is 0)[It feels like an eternity, but after nearly two hours, Hank whispers: &quot;Their language is not very complicated it seems, it starts to make sense to me now. Although I might not have a complete vocabulary, I can now understand the majority of what they are saying. And, with practice, I am confident I can reproduce the language and communicate with them effectively.&quot; Unfortunately, you notice that these two hours in the bushes have cost Hank 10% of his battery. Hanks current battery level is at (set: $battery to $battery-10)(print: $battery)%.]
+(if: $canread is 1)[Hank&#39;s prior knowledge of the symbols allows him to quickly grasp the pronunciation. In under 20 minutes, he whispers, &quot;I&#39;ve got it. I now understand their language and believe I&#39;ll be able to speak it fluently. The language is not very difficult, in fact each symbol represents a letter that has a clear pronunciation, and they have only 15 letters. Therefore, as long as you know how to pronounce each letter, you know how to speak. And because I learned quite a substantial vocabulary in the storage room, I believe I can say I learned their language.(set: $battery to $battery-3)](if: $canread is 0)[It feels like an eternity, but after nearly two hours, Hank whispers: &quot;Their language is not very complicated it seems, it starts to make sense to me now. Although I might not have a complete vocabulary, I can now understand the majority of what they are saying. And, with practice, I am confident I can reproduce the language and communicate with them effectively.&quot; Unfortunately, you notice that these two hours in the bushes have cost Hank 10% of his battery. Hank&#39;s current battery level is at (set: $battery to $battery-10)(print: $battery)%.]
 (set: $canspeak to 1)
-(link:&quot;Ask Hank what did the guards talk about&quot;)[&quot;They were talking about all sorts of things. The first one was concerned about his children, he said that his younger son still hasn&#39;t grown all the fangs and the older son is stupid as a tool. He said he thinks that when he was born he must have fallen and hit his head hard. The other guard was mainly concerned about the ugly prisoner they picked up yesterday in the fields, he said that he was smelling so bad that noone wanted to eat him so that they locked him up in the tower to let the chieftain decide what to do with him. Hoooold on, do you think they are talking about me?&quot;
+(link:&quot;Ask Hank what did the guards talk about&quot;)[&quot;They were talking about all sorts of things. The first one was concerned about his children, he said that his younger son still hasn&#39;t grown all the fangs and the older son is stupid as a tool. He said he thinks that when he was born he must have fallen and hit his head hard. The other guard was mainly concerned about the ugly prisoner they picked up yesterday in the fields, he said that he was smelling so bad that no one wanted to eat him so that they locked him up in the tower to let the chieftain decide what to do with him. Hoooold on, do you think they are talking about me?&quot;
 ]
 [[Ask Hank to make a surprise attack and get their spears-&gt;Attack guards]]
 [[Ask Hank to avoid the guards and walk around the house-&gt;Around the house]]
-[[Ask Hank to return and take the forrest path instead-&gt;Forrest path]]
+[[Ask Hank to return and take the forest path instead-&gt;Forest path]]
 
 
 </tw-passagedata><tw-passagedata pid="48" name="Chest" tags="" position="1325,3125" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;heal&#39;);&lt;/script&gt;(set: $battery to $battery-1)&quot;I am in, quiet as a church mouse, feeling like that Tom Cruise guy in the old classic Mission Impossible movies! Ah, what was I ... oh yeah, the chest. It&#39;s not locked or anything. What do we have here... What a find! Some parts of my repair kit! Time to fix myself a bit!&quot; Hank performs some fixes to his body to remove injuries. Condition improved to (set: $condition to $condition+20)(if: $condition &gt; 95)[(set: $condition to 95)](print: $condition)%.(set: $chest to 1)
 
-Time to get going, the village is not safe, it swarms with those tall creatures - [[ask Hank to safely return and take the forrest path-&gt;Forrest path]]
+Time to get going, the village is not safe, it swarms with those tall creatures - [[ask Hank to safely return and take the forest path-&gt;Forest path]]
 
 
 </tw-passagedata><tw-passagedata pid="49" name="Stay on path" tags="" position="900,3050" size="100,100">(set: $battery to $battery-1)Hank stays on path and continues walking. After couple of minutes you hear Hank saying: &quot;Damn, my sensors are picking up footsteps from ahead, someone is walking towards me. What should I do?&quot;
 
-[[Ask Hank to hold the position and prepare to defend himself if needed-&gt;Forrest fight]]
-[[Ask Hank to quickly dive into the forrest and avoid confrontation-&gt;Hide in woods]]
+[[Ask Hank to hold the position and prepare to defend himself if needed-&gt;Forest fight]]
+[[Ask Hank to quickly dive into the forest and avoid confrontation-&gt;Hide in woods]]
 
 
 </tw-passagedata><tw-passagedata pid="50" name="Shadows" tags="" position="1050,3050" size="100,100">(set: $battery to $battery-2)Hank responds: &quot;Interesting idea, that way I could be hidden in case someone walks down the path. Alright, I&#39;ll go through the bushes instead but still keep close to the path&quot;.
@@ -601,12 +627,12 @@ You can:
 [[Proceed...-&gt;Checkpoint 4]]
 
 
-]</tw-passagedata><tw-passagedata pid="52" name="Forrest fight" tags="" position="750,3075" size="100,100">(set: $ditka to 1)Hank prepared to defend himself, (if: $knife is 1)[he holds his knife in right hand, bends knees a bit.](if: $knife is 0)[he assumes a fighting position.] &quot;Here, we go, footsteps are now closer. I can see it now. There&#39;s a creature coming, looks smaller than me, probably half my size, three eyes, pink skin. Small fangs in its mounth look sharp. It noticed me and froze. Looks at me in a weird way, like it is scared or something. Judging by the size, it could be a kid, but I don&#39;t know enough about this planets inhabitants to be sure.&quot; For a while nothing happens, then Hank continues: &quot;We&#39;re just staring at each other now. The creature has not moved since it saw me - what should I do?&quot;
+]</tw-passagedata><tw-passagedata pid="52" name="Forest fight" tags="" position="750,3075" size="100,100">(set: $ditka to 1)Hank prepared to defend himself, (if: $knife is 1)[he holds his knife in right hand, bends knees a bit.](if: $knife is 0)[he assumes a fighting position.] &quot;Here, we go, footsteps are now closer. I can see it now. There&#39;s a creature coming, looks smaller than me, probably half my size, three eyes, pink skin. Small fangs in its mounth look sharp. It noticed me and froze. Looks at me in a weird way, like it is scared or something. Judging by the size, it could be a kid, but I don&#39;t know enough about this planets inhabitants to be sure.&quot; For a while nothing happens, then Hank continues: &quot;We&#39;re just staring at each other now. The creature has not moved since it saw me - what should I do?&quot;
 
 (t8n:&quot;dissolve&quot;)+(link:&quot;Ask Hank to wait for the creature&#39;s first move&quot;)[Hank waits. And so does the creature. &quot;It looks like it doesn&#39;t want to make a first move. What should I do now?&quot;]
 (if:$canspeak is 1)[[[Ask Hank to tell it in the language he learned that he means no harm-&gt;Kid chat]]]
 [[Tell Hank to attack the creature-&gt;Kid attack]]
-[[Tell Hank to run into the forrest and hide-&gt;Kid run]]
+[[Tell Hank to run into the forest and hide-&gt;Kid run]]
 [[Tell Hank, that this &quot;kid&quot; probably is no threat and ask him to just pass by it and continue-&gt;Kid passed by]]
 
 
@@ -614,7 +640,7 @@ You can:
 
 In a moment you hear: &quot;OK, I managed to avoid the conflict, the person walked by me and did not notice me. But you should be aware that the bush was full of thorns...&quot; (set: $condition to $condition-10)(set:$damage to 1)
 
-(if: $condition &lt; 21)[(set:$condition to 0)Hank tries to get out of the bush, but continues to take damage while trying to get out. &quot;It hurts! Oh my god, I think I am entangled.... just one more push ... ugh...&quot; you hear in Hanks voice that he is starting to panic. &quot;I am so weak! I don&#39;t know if I can do this! Ouch. Oh no... I think I am stuck. I don&#39;t have enough strength to get out!&quot; You hear how Hank is struggling for 5 more minutes, but then he just said: &quot;No! Someone heard me, trying to get out! They are coming for me... NO!!!&quot; and then you lost the connection with Hank...
+(if: $condition &lt; 21)[(set:$condition to 0)Hank tries to get out of the bush, but continues to take damage while trying to get out. &quot;It hurts! Oh my god, I think I am entangled.... just one more push ... ugh...&quot; you hear in Hank&#39;s voice that he is starting to panic. &quot;I am so weak! I don&#39;t know if I can do this! Ouch. Oh no... I think I am stuck. I don&#39;t have enough strength to get out!&quot; You hear how Hank is struggling for 5 more minutes, but then he just said: &quot;No! Someone heard me, trying to get out! They are coming for me... NO!!!&quot; and then you lost the connection with Hank...
 
 (transition:&quot;dissolve&quot;)+(transition-delay:3s)+(transition-time:2s)+(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXXXXXXX===&quot;)+(text-size:2)[&#39;&#39;GAME OVER&#39;&#39;]
 You can:
@@ -643,42 +669,42 @@ Hank quickly explains to you that &quot;oxxi&quot; doesn&#39;t have equivalent i
 (link:&quot;Tell Hank the time for games is over, ask him to kill Ditka&quot;)[(if: $good &lt; 0)[(go-to: &quot;Kid attack&quot;)](if: $good &gt; -1)[(set:$good to -1) (go-to:&quot;Kid attack&quot;)]]
 
 
-</tw-passagedata><tw-passagedata pid="55" name="Kid attack" tags="good-2" position="675,3200" size="100,100">(set: $battery to $battery-1)(if: $good &lt; 0)[Hank obeys and attacks the creature. He is quick and the little creature doesn&#39;t stand a chance. Hanks first blow immediatelly knocks the creature down, second follow up blow ends its life. &quot;Ok so that&#39;s done, it was a piece of a cake. It&#39;s a weird feeling to end a life, but I seem to .... like it?&quot;, you can almost feel how Hank changed, his voice was so cold when he said the last words. (set: $good to $good-2)(set: $kill to $kill+1) &quot;Well, anyway, I don&#39;t think it would be wise to leave the body lying here like that, I am going to throw it in the bushes nearby to get it out of sight&quot;.
+</tw-passagedata><tw-passagedata pid="55" name="Kid attack" tags="good-2" position="675,3200" size="100,100">(set: $battery to $battery-1)(if: $good &lt; 0)[Hank obeys and attacks the creature. He is quick and the little creature doesn&#39;t stand a chance. Hank&#39;s first blow immediately knocks the creature down, second follow up blow ends its life. &quot;Ok so that&#39;s done, it was a piece of a cake. It&#39;s a weird feeling to end a life, but I seem to .... like it?&quot;, you can almost feel how Hank changed, his voice was so cold when he said the last words. (set: $good to $good-2)(set: $kill to $kill+1) &quot;Well, anyway, I don&#39;t think it would be wise to leave the body lying here like that, I am going to throw it in the bushes nearby to get it out of sight&quot;.
 
-[[Proceed...-&gt;Forrest path 2]]](if: $good &gt; -1)[Hank hesitates: &quot;Are you sure folks? That creature looks really scared of me, if it wanted to harm me it would probably attack me already. Please reconsider.&quot;
+[[Proceed...-&gt;Forest path 2]]](if: $good &gt; -1)[Hank hesitates: &quot;Are you sure folks? That creature looks really scared of me, if it wanted to harm me it would probably attack me already. Please reconsider.&quot;
 
 (link:&quot;Insist that Hank attacks the creature&quot;)[(set:$good to -1) (go-to:&quot;Kid attack&quot;)]
-[[Tell Hank to run into the forrest and hide-&gt;Kid run]]
+[[Tell Hank to run into the forest and hide-&gt;Kid run]]
 [[Tell Hank, that this &quot;kid&quot; probably is no threat and ask him to just pass by it and continue-&gt;Kid passed by]]
 (if:$canspeak is 1)[[[Ask Hank to tell it in the language he learned that he means no harm-&gt;Kid chat]]]]
 
-</tw-passagedata><tw-passagedata pid="56" name="Kid run" tags="" position="550,3200" size="100,100">Hank confirms and runs to the forrest. After a while he contacts you again a says: &quot;I jumped from the path into the forrest and ran for my life as instructed. I stopped now as noone is following me and layed low for a moment. I think the air is clear now and I can proceed. I am deeper in the forrest, I can either retrace my steps and get back to the path or go in a random direction, because I have absolutely no idea where I am now - the vegetation here is becoming very dense.&quot;
+</tw-passagedata><tw-passagedata pid="56" name="Kid run" tags="" position="550,3200" size="100,100">Hank confirms and runs to the forest. After a while he contacts you again a says: &quot;I jumped from the path into the forest and ran for my life as instructed. I stopped now as no one is following me and layed low for a moment. I think the air is clear now and I can proceed. I am deeper in the forest, I can either retrace my steps and get back to the path or go in a random direction, because I have absolutely no idea where I am now - the vegetation here is becoming very dense.&quot;
 
-You can see on the monitor that Hanks sprint costed him 5% of battery. (set: $battery to $battery-5)
-
-[[Ask Hank to retrace his steps back to the path-&gt;Retrace steps back]]
-[[Ask Hank to proceed deeper into the forrest-&gt;Depths]]
-
-
-</tw-passagedata><tw-passagedata pid="57" name="Kid passed by" tags="" position="825,3200" size="100,100">&quot;OK&quot; says Hank. He lowers his guard and casually steps towards the creature to walk by it. As soon as he does that the creature starts screaming and runs away. (if: $canspeak is 1)[Hank contacts you few minutes later: &quot;Guys, I panicked a bit I have to say. It started screaming and I understood what did it say: &#39;Help me! Guards! It wants to eat me! Help!&#39;](if: $canspeak is 0)[Hank contacts you few minutes later: &quot;Guys, I panicked a bit I have to say. It started screaming and I got scared that it calls for help], I jumped from the path into the forrest and ran for my life. I stopped now as noone is following me and layed low for a moment. I think the air is clear now and I can proceed. I am deeper in the forrest, I can either retrace my steps and get back to the path or go in a random direction, because I have absolutely no idea where I am now - the vegetation here is becoming very dense.&quot;
-
-You can see on the monitor that Hanks sprint costed him 5% of battery. (set: $battery to $battery-5)
+You can see on the monitor that Hank&#39;s sprint cost him 5% of battery. (set: $battery to $battery-5)
 
 [[Ask Hank to retrace his steps back to the path-&gt;Retrace steps back]]
-[[Ask Hank to proceed deeper into the forrest-&gt;Depths]]
+[[Ask Hank to proceed deeper into the forest-&gt;Depths]]
 
 
-</tw-passagedata><tw-passagedata pid="58" name="Forrest path 2" tags="" position="1050,3650" size="100,100">(set: $battery to $battery-1)Hank continues walking down the path. Nothing happens for 10 minutes, then Hank tells you: &quot;There&#39;s something on the path. It looks like a creature is tied to a tall tree on the side. I am going to check it&quot; And without waiting for permission he approaches the weird scene.
+</tw-passagedata><tw-passagedata pid="57" name="Kid passed by" tags="" position="825,3200" size="100,100">&quot;OK&quot; says Hank. He lowers his guard and casually steps towards the creature to walk by it. As soon as he does that the creature starts screaming and runs away. (if: $canspeak is 1)[Hank contacts you few minutes later: &quot;Guys, I panicked a bit I have to say. It started screaming and I understood what did it say: &#39;Help me! Guards! It wants to eat me! Help!&#39;](if: $canspeak is 0)[Hank contacts you few minutes later: &quot;Guys, I panicked a bit I have to say. It started screaming and I got scared that it calls for help], I jumped from the path into the forest and ran for my life. I stopped now as no one is following me and layed low for a moment. I think the air is clear now and I can proceed. I am deeper in the forest, I can either retrace my steps and get back to the path or go in a random direction, because I have absolutely no idea where I am now - the vegetation here is becoming very dense.&quot;
+
+You can see on the monitor that Hank&#39;s sprint cost him 5% of battery. (set: $battery to $battery-5)
+
+[[Ask Hank to retrace his steps back to the path-&gt;Retrace steps back]]
+[[Ask Hank to proceed deeper into the forest-&gt;Depths]]
+
+
+</tw-passagedata><tw-passagedata pid="58" name="Forest path 2" tags="" position="1050,3650" size="100,100">(set: $battery to $battery-1)Hank continues walking down the path. Nothing happens for 10 minutes, then Hank tells you: &quot;There&#39;s something on the path. It looks like a creature is tied to a tall tree on the side. I am going to check it&quot; And without waiting for permission he approaches the weird scene.
 
 [[Proceed...-&gt;Checkpoint 4]]
 
 
 </tw-passagedata><tw-passagedata pid="59" name="Retrace steps back" tags="" position="800,3350" size="100,100">Couple minutes later Hank reports: &quot;I managed to find my way back to the pathway. It&#39;s clear now, no signs of anyone on it. Do you want me to continue walking down the path or have any other idea?&quot;
 
-[[Tell Hank to get back and continue down the path-&gt;Forrest path 2]]
+[[Tell Hank to get back and continue down the path-&gt;Forest path 2]]
 [[Tell Hank he should follow the path but instead through the vegetation around it-&gt;Passage in woods]]
 
-</tw-passagedata><tw-passagedata pid="60" name="Depths" tags="Death no-footer" position="550,3350" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;Hanks did as you said. He went deeper in the woods but due to the vegetation density he lost track of where he is and at some point failed to retrace his own steps. The terrain was very difficult and after couple of hours his battery levels became critical. Hank lied on the ground and closed his eyes as his system went to forced hibernation. You have lost contact with Hank.
+</tw-passagedata><tw-passagedata pid="60" name="Depths" tags="Death no-footer" position="550,3350" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;Hank did as you said. He went deeper in the woods but due to the vegetation density he lost track of where he is and at some point failed to retrace his own steps. The terrain was very difficult and after couple of hours his battery levels became critical. Hank lied on the ground and closed his eyes as his system went to forced hibernation. You have lost contact with Hank.
 
 (transition:&quot;dissolve&quot;)+(transition-delay:3s)+(transition-time:2s)+(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXXXXXXX===&quot;)+(text-size:2)[&#39;&#39;GAME OVER&#39;&#39;]
 
@@ -691,13 +717,13 @@ You can:
 - &quot;What if we trade instead? Will you help me getting back to my vehicle in exchange for this nice ring?&quot;
 - Ditka hesitates but then responds(text-colour:grey)[//&quot;Oooh, that&#39;s a nice ring! OK.&quot;//]
 
-She quickly grabs the ring from Hanks hand and continues:(set: $ring to 0)
+She quickly grabs the ring from Hank&#39;s hand and continues:(set: $ring to 0)
 - (text-colour:grey)[//&quot;I don&#39;t know the way, sorry. But I can help! If you continue going this way, do not release the prisoner, she is ill and will attack you no matter what you say, no matter what she tells you. And also avoid the swamp, it&#39;s a bad bad place and my oxxi told me to never go there. Bye!&quot;//]
 - &quot;Thank you, this is helpful. And please don&#39;t tell anyone you saw me, it&#39;s better that way&quot;
 
 &quot;Aaaaand she&#39;s gone.. she was nice, I am happy I did not hurt her. What now?&quot; You recognized that Hank was smiling when saying these words.(set: $good to $good+1)(set: $help to 1)(set: $ditkafriendly to 1)
 
-[[Ask Hank to proceed down the path-&gt;Forrest path 2]]
+[[Ask Hank to proceed down the path-&gt;Forest path 2]]
 [[Ask Hank to rather continue along the path in shadows of the vegetation-&gt;Passage in woods]]
 
 
@@ -706,7 +732,7 @@ She quickly grabs the ring from Hanks hand and continues:(set: $ring to 0)
 
 &quot;So that&#39;s that. I am on the pathway, should I continue?&quot;
 
-[[Ask Hank to proceed down the path-&gt;Forrest path 2]]
+[[Ask Hank to proceed down the path-&gt;Forest path 2]]
 [[Ask Hank to rather continue along the path in shadows of the vegetation-&gt;Passage in woods]]
 
 
@@ -714,23 +740,23 @@ She quickly grabs the ring from Hanks hand and continues:(set: $ring to 0)
 
 Ditka started screaming (text-colour:grey)[//&quot;Help me! Guards! It wants to kill me! Help!&quot;//], turned around and ran away.
 
-In couple of minutes of radio silence Hank tells you: &quot;Guys, I panicked a bit I have to say. As soon as it started screaming, I jumped from the path into the forrest and ran for my life. I stopped now as noone is following me and layed low for a moment. I think the air is clear now and I can proceed. I am deeper in the forrest, I can either retrace my steps and get back to the path or go in a random direction, because I have absolutely no idea where I am now - the vegetation here is becoming very dense.&quot;
+In couple of minutes of radio silence Hank tells you: &quot;Guys, I panicked a bit I have to say. As soon as it started screaming, I jumped from the path into the forest and ran for my life. I stopped now as no one is following me and layed low for a moment. I think the air is clear now and I can proceed. I am deeper in the forest, I can either retrace my steps and get back to the path or go in a random direction, because I have absolutely no idea where I am now - the vegetation here is becoming very dense.&quot;
 
-You can see on the monitor that Hanks sprint costed him 5% of battery. (set: $battery to $battery-5)
+You can see on the monitor that Hank&#39;s sprint cost him 5% of battery. (set: $battery to $battery-5)
 
 [[Ask Hank to retrace his steps back to the path-&gt;Retrace steps back]]
-[[Ask Hank to proceed deeper into the forrest-&gt;Depths]]
+[[Ask Hank to proceed deeper into the forest-&gt;Depths]]
 
 
 </tw-passagedata><tw-passagedata pid="64" name="Checkpoint 4" tags="" position="950,3775" size="100,100">//Checkpoint//
-{(if:visits is 1)[(set: $chk4battery to $battery)(set: $chk4condition to $condition)(set: $chk4good to $good)(set: $chk4knife to $knife)(set: $chk4canread to $canread)(set: $chk4ring to $ring)(set: $chk4creatureKO to $creatureKO)(set: $chk4canspeak to $canspeak)(set: $chk4help to $help)(set: $chk4kill to $kill)(set: $chk4ditkafriendly to $ditkafriendly)]
-(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk4battery)(set: $condition to $chk4condition)(set: $good to $chk4good)(set: $knife to $chk4knife)(set: $canread to $chk4canread)(set: $ring to $chk4ring)(set: $creatureKO to $chk4creatureKO)(set: $canspeak to $chk4canspeak)(set: $help to $chk4help)(set: $kill to $chk4kill)(set: $ditkafriendly to $chk4ditkafriendly)]
+{(if:visits is 1)[(set: $chk4battery to $battery)(set: $chk4condition to $condition)(set: $chk4good to $good)(set: $chk4knife to $knife)(set: $chk4canread to $canread)(set: $chk4ring to $ring)(set: $chk4creatureKO to $creatureKO)(set: $chk4canspeak to $canspeak)(set: $chk4help to $help)(set: $chk4kill to $kill)(set: $chk4ditkafriendly to $ditkafriendly)(set: $chk4snake to $snake)]
+(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk4battery)(set: $condition to $chk4condition)(set: $good to $chk4good)(set: $knife to $chk4knife)(set: $canread to $chk4canread)(set: $ring to $chk4ring)(set: $creatureKO to $chk4creatureKO)(set: $canspeak to $chk4canspeak)(set: $help to $chk4help)(set: $kill to $chk4kill)(set: $ditkafriendly to $chk4ditkafriendly)(set: $snake to $chk4snake)]
 (set: $freewill to 0)}&lt;script&gt;$(&#39;html&#39;).addClass(&#39;checkpoint&#39;);&lt;/script&gt;
 Hank reports to you: &quot;There&#39;s this tall three-eyed creature tied to a tree. It doesn&#39;t see me, it looks like it is sleeping or passed out in some way. I can tell it is alive from its breathing. It has pale skin, but face and arms are covered with some drawings, probably a local version of tribal tattoo. The creature&#39;s massive jaw, filled with fangs, is slightly open and blood-red liquid is dripping from its face. I am almost certain it&#39;s blood. I didn&#39;t notice earlier but there&#39;s an open wound on the right side of the creature&#39;s mouth. The creature&#39;s body is heavily muscled. The creature&#39;s head is hairless and upon closer inspection, I can see that its skin is not like human skin. Instead, it appears to be covered in a fine layer of scales. Three fingers and a thumb on each hand, and another difference to human anatomy - instead of nails it has small claws.&quot;
 
 Hank continues with his inspection for another minute. You learn that the creature smells &quot;funny&quot;, wears simple clothing which covers approximately 53% of its body and other rather unimportant or boring facts.
 
-&quot;The creature is tied with a rope. It looks like it&#39;s made from a natural vine, possibly cut from a tree, but it is sturdy. Above the creature&#39;s head, there are carvings in the bark. (if: $canread is 1)[Those symbols say: &#39;Liar; Traitor; Murderer&#39;.](if: $canread is 0)[I cannot decypher what the symbols mean unfortunatelly.]&quot;
+&quot;The creature is tied with a rope. It looks like it&#39;s made from a natural vine, possibly cut from a tree, but it is sturdy. Above the creature&#39;s head, there are carvings in the bark. (if: $canread is 1)[Those symbols say: &#39;Liar; Traitor; Murderer&#39;.](if: $canread is 0)[I cannot decipher what the symbols mean unfortunatelly.]&quot;
 
 [[Proceed...-&gt;Prisoner]]
 
@@ -818,7 +844,7 @@ You can:
 
 </tw-passagedata><tw-passagedata pid="74" name="Prisoner knife arm" tags="-5life" position="1075,4225" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;(set: $battery to $battery -3)Hank attacks the creature&#39;s arm with his knife. He aims to cause enough damage to make the creature release its grip on his neck. The first cut creates a wound, but the creature&#39;s stranglehold on Hank remains unaffected, as if it didn&#39;t feel the injury. The second cut does what it was supposed to though and Hank finally feels the creature&#39;s grasp weakens. Hank leverages the opportunity to break free and lands a kick on the creature&#39;s stomach. The creature finally releases Hank and appears momentarily dazed. Hank quickly changes position and finds himself behind the creature. He wraps his arm around the creature&#39;s neck and tightens his grip.
 
-The creature tries to fight back and manages to scratch Hanks arms while trying to release from the grip (set:$condition to $condition-5)(set:$damage to 1). But Hank is skilled in jiu-jitsu and similar techniques and the creature soon blacks out.
+The creature tries to fight back and manages to scratch Hank&#39;s arms while trying to release from the grip (set:$condition to $condition-5)(set:$damage to 1). But Hank is skilled in jiu-jitsu and similar techniques and the creature soon blacks out.
 
 [[Ask Hank to stop and tie the creature while it is unconscious-&gt;Prisoner tie]]
 [[Encourage Hank to finish the creature off-&gt;Choking finish off]]
@@ -828,7 +854,7 @@ The creature tries to fight back and manages to scratch Hanks arms while trying 
 
 The creature&#39;s grip around Hank&#39;s neck tightens with every passing second, but the creature also becomes aware that this method of attack is not inflicting enough damage. As a result, it throws Hank to the ground and begins raining several blows down on Hank&#39;s head.(set:$damage to 1)
 
-(if: $condition &lt; 30)[(set:$condition to 0)Hank is not in good condition to survive this. The creature continues beating Hank until the point, where Hanks body just doesn&#39;t respond anymore.
+(if: $condition &lt; 30)[(set:$condition to 0)Hank is not in good condition to survive this. The creature continues beating Hank until the point, where Hank&#39;s body just doesn&#39;t respond anymore.
 
 (transition:&quot;dissolve&quot;)+(transition-delay:3s)+(transition-time:2s)+(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXXXXXXX===&quot;)+(text-size:2)[&#39;&#39;GAME OVER&#39;&#39;]
 You can:
@@ -839,9 +865,9 @@ For couple of minutes you hear nothing, but you know Hank survived because the c
 [[Proceed...-&gt;Fork on the road]]
 
 
-]</tw-passagedata><tw-passagedata pid="76" name="Prisoner eye poke" tags="-5life" position="700,4225" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;(set: $battery to $battery -5)Hank uses both of his hands and aims at the creature&#39;s eyes. As soon as he hits the eye, the creature immediatelly releases him from its grasp, steps back and instictively covers it&#39;s face.
+]</tw-passagedata><tw-passagedata pid="76" name="Prisoner eye poke" tags="-5life" position="700,4225" size="100,100">&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;(set: $battery to $battery -5)Hank uses both of his hands and aims at the creature&#39;s eyes. As soon as he hits the eye, the creature immediately releases him from its grasp, steps back and instictively covers it&#39;s face.
 
-Hank automatically changes the position and gets behind the creature. He puts his arm around its neck, gripping tightly under the chin, and starts to choke it. The creature tries to fight back and manages to scratch Hanks arms while trying to release from the grip (set:$condition to $condition-5)(set:$damage to 1). But Hank is skilled in jiu-jitsu and similar techniques and the creature soon blacks out.
+Hank automatically changes the position and gets behind the creature. He puts his arm around its neck, gripping tightly under the chin, and starts to choke it. The creature tries to fight back and manages to scratch Hank&#39;s arms while trying to release from the grip (set:$condition to $condition-5)(set:$damage to 1). But Hank is skilled in jiu-jitsu and similar techniques and the creature soon blacks out.
 
 [[Ask Hank to stop and tie the creature while it is unconscious-&gt;Prisoner tie]]
 [[Encourage Hank to finish the creature off-&gt;Choking finish off]]
@@ -858,7 +884,7 @@ Hank automatically changes the position and gets behind the creature. He puts hi
 </tw-passagedata><tw-passagedata pid="79" name="Bleeding finish off" tags="good+1" position="850,4350" size="100,100">(set: $battery to $battery-2)(set: $kill to $kill+1)Hank delivers the final blow and (if:$good &lt;-2)[says: &quot;Die, you scum! That&#39;s what you get when you mess with me!&quot; Then you hear that Hank burst in laughter. That honestly gave you the chills. What has Hank become?
 &quot;We&#39;re done here.&quot;](if:$good &gt;-1)[says: &quot;Noone should be in such pain...this was the only way to put you out of this misery.&quot;(set: $good to $good+1)](if:$good &gt; -3)+(if:$good &lt;0)[doesn&#39;t say anything else but: &quot;Alright, what&#39;s next on the agenda?&quot;]
 
-[[Continue following the forrest path-&gt;Fork on the road]]
+[[Continue following the forest path-&gt;Fork on the road]]
 
 
 </tw-passagedata><tw-passagedata pid="80" name="Prisoner tie" tags="good+1" position="700,4475" size="100,100">(set: $battery to $battery-2)(set:$good to $good+1)Hank releases the grip and while the creature lies on the ground, he picks up the remains of the rope and uses it to tie it up properly.
@@ -885,24 +911,24 @@ In your mind you are wondering what could give Hank away. Maybe they (if: $creat
 
 
 </tw-passagedata><tw-passagedata pid="83" name="Checkpoint 5" tags="" position="1075,4775" size="100,100">(set:$chapter to &quot;Chapter 3&quot;)(replace: ?chapter)[$chapter]//Checkpoint//
-{(if:visits is 1)[(set: $chk5battery to $battery)(set: $chk5condition to $condition)(set: $chk5good to $good)(set: $chk5knife to $knife)(set: $chk5canread to $canread)(set: $chk5ring to $ring)(set: $chk5creatureKO to $creatureKO)(set: $chk5canspeak to $canspeak)(set: $chk5help to $help)(set: $chk5ditka to $ditka)(set: $chk5kill to $kill)(set: $chk5ditkafriendly to $ditkafriendly)(set: $chk5freewill to $freewill)]
-(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk5battery)(set: $condition to $chk5condition)(set: $good to $chk5good)(set: $knife to $chk5knife)(set: $canread to $chk5canread)(set: $ring to $chk5ring)(set: $creatureKO to $chk5creatureKO)(set: $canspeak to $chk5canspeak)(set: $help to $chk5help)(set: $ditka to $chk5ditka)(set: $kill to $chk5kill)(set: $ditkafriendly to $chk5ditkafriendly)(set: $freewill to $chk5freewill)]
+{(if:visits is 1)[(set: $chk5battery to $battery)(set: $chk5condition to $condition)(set: $chk5good to $good)(set: $chk5knife to $knife)(set: $chk5canread to $canread)(set: $chk5ring to $ring)(set: $chk5creatureKO to $creatureKO)(set: $chk5canspeak to $canspeak)(set: $chk5help to $help)(set: $chk5ditka to $ditka)(set: $chk5kill to $kill)(set: $chk5ditkafriendly to $ditkafriendly)(set: $chk5freewill to $freewill)(set: $chk5snake to $snake)]
+(if:visits &gt; 1)[(set: $death to $death+1)(set: $battery to $chk5battery)(set: $condition to $chk5condition)(set: $good to $chk5good)(set: $knife to $chk5knife)(set: $canread to $chk5canread)(set: $ring to $chk5ring)(set: $creatureKO to $chk5creatureKO)(set: $canspeak to $chk5canspeak)(set: $help to $chk5help)(set: $ditka to $chk5ditka)(set: $kill to $chk5kill)(set: $ditkafriendly to $chk5ditkafriendly)(set: $freewill to $chk5freewill)(set: $snake to $chk5snake)]
 (set: $spear to 0)(set:$chieftain to 0)}&lt;script&gt;$(&#39;html&#39;).addClass(&#39;checkpoint&#39;);&lt;/script&gt;
 Hank is awaiting your instructions.
 
 You can tell Hank to:
 
 [[Run right (the least used path)-&gt;Swamp run]]
-[[Run straight ahead (frequently used path to the forrest)-&gt;River run]]
+[[Run straight ahead (frequently used path to the forest)-&gt;River run]]
 [[Run left (frequently used path, thinning forest)-&gt;Meadow run]]
 [[Don&#39;t follow any path and hide behind the nearest tree-&gt;Hide]]
 [[Tell Hank to stay and fight-&gt;Slaughter]]
 [[Tell Hank to make the choice himself-&gt;Hank decides]] //(this action will let Hank decide on his own, based on choices you&#39;ve made for him earlier on this journey)//
 
 
-</tw-passagedata><tw-passagedata pid="84" name="Swamp run" tags="" position="800,5000" size="100,100">(set: $battery to $battery -2)Hanks runs to the right as instructed. In about a minute Hank contacts you: &quot;Listen, this is weird, I know that they were after me, but they stopped following me after a short while. (if: $canspeak is 1)[Last thing I heard was one of them saying: &#39;Leave him be, the swamp will take care of him&#39;.&quot;](else:)[I heard them saying something to each other, but I can only guess what that was.&quot; After a short moment Hank continues: &quot;So this got me thinking - why didn&#39;t they follow me? I doubt they would just lose interest. There&#39;s something odd about this place. Something that keeps those creatures away. I should be careful.&quot;](if: $canread is 1)[ Hank remembers that the carving on the tree said &#39;Swamp&#39;. So //that&#39;s// where he ended up...]
+</tw-passagedata><tw-passagedata pid="84" name="Swamp run" tags="" position="800,5000" size="100,100">(set: $battery to $battery -2)Hank runs to the right as instructed. In about a minute Hank contacts you: &quot;Listen, this is weird, I know that they were after me, but they stopped following me after a short while. (if: $canspeak is 1)[Last thing I heard was one of them saying: &#39;Leave him be, the swamp will take care of him&#39;.&quot;](else:)[I heard them saying something to each other, but I can only guess what that was.&quot; After a short moment Hank continues: &quot;So this got me thinking - why didn&#39;t they follow me? I doubt they would just lose interest. There&#39;s something odd about this place. Something that keeps those creatures away. I should be careful.&quot;](if: $canread is 1)[ Hank remembers that the carving on the tree said &#39;Swamp&#39;. So //that&#39;s// where he ended up...]
 
-(t8n:&quot;dissolve&quot;)+(link:&quot;Ask Hank to look around&quot;)[You asked Hank to look around. &quot;This place is quiet. I don&#39;t see any footprints around, like if noone is actually coming through here. Trees are more spread, the density of this forest is not as high as before. There&#39;s no path anymore, this place is wide and giving me plenty of options to proceed my journey further.&quot;
+(t8n:&quot;dissolve&quot;)+(link:&quot;Ask Hank to look around&quot;)[You asked Hank to look around. &quot;This place is quiet. I don&#39;t see any footprints around, like if no one is actually coming through here. Trees are more spread, the density of this forest is not as high as before. There&#39;s no path anymore, this place is wide and giving me plenty of options to proceed my journey further.&quot;
 ]
 (link:&quot;Ask Hank to return to the crossroad immediately&quot;)[You asked Hank to return to crossroad. &quot;Are you crazy? What if they are still there and waiting for me? No, no, I&#39;ll better try my luck here, this place looks peaceful. Let&#39;s see - battery at $battery%, health condition at $condition%. I am fine. I think...&quot; You are not happy that Hank did not follow your instructions, but he does have a point there...
 
@@ -934,10 +960,10 @@ In a couple of seconds, Hank continues, &quot;The vegetation around here is dens
 [[Let Hank decide what the best action will be-&gt;Meadow Hank decides]]
 
 
-</tw-passagedata><tw-passagedata pid="87" name="Hide" tags="" position="1250,4800" size="100,100">(set: $battery to $battery-1)You asked Hank to hide behind the tree. Hank tells you: &quot;There are many trees around, but I don&#39;t see a way how I could hide without being spotted. The forrest may be dense, but the trees are not that thick! And there are no suitable bushes around either. As far as I can see my options it&#39;s either run or fight.&quot;
+</tw-passagedata><tw-passagedata pid="87" name="Hide" tags="" position="1250,4800" size="100,100">(set: $battery to $battery-1)You asked Hank to hide behind the tree. Hank tells you: &quot;There are many trees around, but I don&#39;t see a way how I could hide without being spotted. The forest may be dense, but the trees are not that thick! And there are no suitable bushes around either. As far as I can see my options it&#39;s either run or fight.&quot;
 
 [[Run right (the least used path)-&gt;Swamp run]]
-[[Run straight ahead (frequently used path to the forrest)-&gt;River run]]
+[[Run straight ahead (frequently used path to the forest)-&gt;River run]]
 [[Run left (frequently used path, thinning forest)-&gt;Meadow run]]
 [[Tell Hank to stay and fight-&gt;Slaughter]]
 [[Tell Hank to make the choice himself-&gt;Hank decides]]//(this action will let Hank decide on his own, based on choices you&#39;ve made for him earlier on this journey)//
@@ -1081,7 +1107,7 @@ The creature continues by saying:(text-colour:gray)[//&quot;So you speak our lan
 (if:$kill &gt; 0)+(if: $condition &gt; 40)+(if: $knife is 1)[&quot;I have fought and won before. I am armed with a knife and since my condition is not terrible I decided to [[ambush them&quot;-&gt;River ambush]]](else-if: $battery &gt; 45)[&quot;I believe that best would be to [[swim-&gt;River swim]] away from them. My battery is at $battery% so I should be fine.&quot;](else:)[&quot;Given my actual condition and battery levels I believe the best option for me is to [[hide-&gt;River hide]] and hope they won&#39;t find me&quot;]
 
 
-</tw-passagedata><tw-passagedata pid="102" name="Meadow walk" tags="" position="575,5575" size="100,100">(set: $battery to $battery-1)After couple of moments Hank reaches out to you: &quot;This path leads out of the forest. I am currently standing at its border. Forest behind me and some sort of meadow ahead of me. But look! Over there on the horizon I believe I can see the module!&quot; The joy from Hanks voice immediatelly vanishes as soon as he says the next thing: &quot;I think it is too early to celebrate, I can hear footsteps behind me, looks like they continue to scout the area and are searching for me. I believe its more than one creature, but definitely less than before. There aren&#39;t many places to hide around here, the meadow seems mostly flat with small bushes and other vegetation not taller than reaching the height of my ankles. As far as my options go - I can rush towards the module, but I&#39;ll be in the open and the creatures following me will see me miles away or I could fight them. I might stand a chance, although it&#39;s a small chance indeed.&quot;
+</tw-passagedata><tw-passagedata pid="102" name="Meadow walk" tags="" position="575,5575" size="100,100">(set: $battery to $battery-1)After couple of moments Hank reaches out to you: &quot;This path leads out of the forest. I am currently standing at its border. Forest behind me and some sort of meadow ahead of me. But look! Over there on the horizon I believe I can see the module!&quot; The joy from Hank&#39;s voice immediately vanishes as soon as he says the next thing: &quot;I think it is too early to celebrate, I can hear footsteps behind me, looks like they continue to scout the area and are searching for me. I believe its more than one creature, but definitely less than before. There aren&#39;t many places to hide around here, the meadow seems mostly flat with small bushes and other vegetation not taller than reaching the height of my ankles. As far as my options go - I can rush towards the module, but I&#39;ll be in the open and the creatures following me will see me miles away or I could fight them. I might stand a chance, although it&#39;s a small chance indeed.&quot;
 
 (if: $ditkafriendly is 1)[&quot;Hold on, I see a movement on the side. It&#39;s Ditka! Waving at me from the forest!&quot;
 
@@ -1099,13 +1125,13 @@ In a couple of seconds, Hank continues, &quot;The vegetation around here is dens
 [[Tell Hank to return to the cross road and take the left path instead-&gt;Meadow walk]]
 
 
-</tw-passagedata><tw-passagedata pid="104" name="Swamp walk" tags="" position="800,5125" size="100,100">Hank walks down the path. He tells you: &quot;This place is quiet. I don&#39;t see any footprints around, like if noone is actually coming through here. Trees are more spread, the density of this forest is not as high as before. There&#39;s no path anymore, this place is wide and giving me plenty of options to proceed my journey further.&quot;
+</tw-passagedata><tw-passagedata pid="104" name="Swamp walk" tags="" position="800,5125" size="100,100">Hank walks down the path. He tells you: &quot;This place is quiet. I don&#39;t see any footprints around, like if no one is actually coming through here. Trees are more spread, the density of this forest is not as high as before. There&#39;s no path anymore, this place is wide and giving me plenty of options to proceed my journey further.&quot;
 
 [[Let Hank proceed-&gt;Swamp event]]
 [[Tell Hank that you have changed your mind and ask him to proceed via the left path with the thinning forest-&gt;Meadow walk]]
 
 
-</tw-passagedata><tw-passagedata pid="105" name="Swamp cut vines" tags="-10life" position="550,5325" size="100,100">(set:$battery to $battery-10)(set: $condition to $condition-5)&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;The more Hank fights it, the stronger the forest fights back. (if:($battery &lt; 10) OR ($condition &lt;10))[Unfortunatelly Hank quickly runs out of the remainder of his battery charge and his body slowly gives up. [[Proceed...-&gt;Death]]](else:)[Luckily Hank still has some energy left and cuts through vines with his blade. He is fighting for his life, so he doesn&#39;t mind that he occasionaly cuts and bruises his own feet in the process. Finally Hank manages to cut off the last vine and seizes the opportunity to run away.
+</tw-passagedata><tw-passagedata pid="105" name="Swamp cut vines" tags="-10life" position="550,5325" size="100,100">(set:$battery to $battery-10)(set: $condition to $condition-5)&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;The more Hank fights it, the stronger the forest fights back. (if:($battery &lt; 10) OR ($condition &lt;10))[Unfortunatelly Hank quickly runs out of the remainder of his battery charge and his body slowly gives up. [[Proceed...-&gt;Death]]](else:)[Luckily Hank still has some energy left and cuts through vines with his blade. He is fighting for his life, so he doesn&#39;t mind that he occasionally cuts and bruises his own feet in the process. Finally Hank manages to cut off the last vine and seizes the opportunity to run away.
 
 After few brief moments Hank comes back to you with a shaken voice: &quot;I never thought I would get out of there alive... I took some damage and my battery life took a hit too, but I am ready to proceed. Continuing through this area would be a suicide mission, so I am getting back to the crossroad.&quot;
 
@@ -1117,7 +1143,7 @@ After few brief moments Hank comes back to you with a shaken voice: &quot;I neve
 </tw-passagedata><tw-passagedata pid="106" name="Swamp pretend dead" tags="no-footer" position="825,5325" size="100,100">Hank pretends being dead to the best of his abilities. After a while he doesn&#39;t have to pretend anymore, because he just made it easier for the vines to drag him towards the quicksand-like soil. He feels the cold embrace of the soil as it engulfs him, filling his mouth and nose with the thick, suffocating muck. He struggles against it, but it&#39;s a losing battle. As he&#39;s dragged deeper into the soil, his strength wanes and his thoughts turn to regret, fear and despair. He tries to hold on for as long as possible, but eventually, his body succumbs to the suffocating embrace of the soil and he drowns.
 
 [[Proceed...-&gt;Death]]</tw-passagedata><tw-passagedata pid="107" name="Swamp untangle" tags="-10life" position="625,5450" size="100,100">(set:$battery to $battery-15)(set: $condition to $condition-10)(set:$damage to 1)&lt;script&gt;$(&#39;html&#39;).addClass(&#39;injury&#39;);&lt;/script&gt;The more Hank fights it, the stronger the forest fights back. (if:($battery &lt; 10) OR ($condition &lt;10))[(set:$condition to 0)(set: $battery to 0)Unfortunatelly Hank quickly runs out of the remainder of his battery charge and his body slowly gives up. [[Proceed...-&gt;Death]]
-](else:)[Luckily Hank still has some energy left and tears through vines with his bare hands. He is fighting for his life, so he doesn&#39;t mind that he occasionaly bruises his own hands and feet in the process. Finally Hank manages to break the last vine and seizes the opportunity to run away.
+](else:)[Luckily Hank still has some energy left and tears through vines with his bare hands. He is fighting for his life, so he doesn&#39;t mind that he occasionally bruises his own hands and feet in the process. Finally Hank manages to break the last vine and seizes the opportunity to run away.
 
 After few brief moments Hank comes back to you with a shaken voice: &quot;I never thought I would get out of there alive... I took some serious damage and my battery life took a considerable hit too, but I am ready to proceed. Continuing through this area would be a suicide mission, so I am getting back to the crossroad.&quot;
 
@@ -1191,7 +1217,7 @@ You can...
 Health condition at (print:$condition)%]]]</tw-passagedata><tw-passagedata pid="116" name="Meadow danger Hank decides" tags="" position="750,6075" size="100,100">(set: $freewill to it+1)(if:$good is &gt;0)[&quot;She tried to help me, now it&#39;s my turn...&quot; says Hank and [[decides to save Ditka and fight-&gt;Meadow danger fight]]](else:)[Hank decides to [[give up-&gt;Meadow Hank gives up]]]
 
 
-</tw-passagedata><tw-passagedata pid="117" name="Meadow danger fight" tags="" position="625,6175" size="100,100">(set: $battery to it -2)Hank swiftly grabs the spear with his right hand and pulls. The creature did not anticipate any resistance and therefore lost its composure. In a panic it tries to pull back, but as soon as it does, Hank lets go of the spear, which causes that the creature falls on its back. Hank expected this to happen, therefore he immediatelly followed up with a leap towards the creature and with a strong kick in its head he manages to knock it out. He takes the spear (set: $spear to 1)away of it.
+</tw-passagedata><tw-passagedata pid="117" name="Meadow danger fight" tags="" position="625,6175" size="100,100">(set: $battery to it -2)Hank swiftly grabs the spear with his right hand and pulls. The creature did not anticipate any resistance and therefore lost its composure. In a panic it tries to pull back, but as soon as it does, Hank lets go of the spear, which causes that the creature falls on its back. Hank expected this to happen, therefore he immediately followed up with a leap towards the creature and with a strong kick in its head he manages to knock it out. He takes the spear (set: $spear to 1)away of it.
 
 &quot;Are you alright?&quot; he asks. (text-colour:gray)[//&quot;I am... and I am sorry, I did not know he will follow me! I swear!&quot;//], responds Ditka in tears. Hank is for a moment surprised, the creatures manifest emotions like humans. (text-colour:gray)[//&quot;Please, don&#39;t kill him! He doesn&#39;t deserve to die, he just did his duty. And he is right, I betrayed my tribe for you, I should face my punishment.&quot;//]
 
@@ -1285,7 +1311,7 @@ You can:
 (if: (history: where its name contains &quot;Chest&quot;)&#39;s length is 0)+(text-colour:red)[&amp;#10008; ](if: (history: where its name contains &quot;Chest&quot;)&#39;s length &gt; 0)+(text-colour:green)[&amp;#10004; ]Hank &#39;&#39;did&#39;&#39; (if:(history: where its name contains &quot;Chest&quot;)&#39;s length is 0)[&#39;&#39;not &#39;&#39;]manage to find and open a chest.
 (if: $help is 0)+(text-colour:red)[&amp;#10008; ](if: $help is 1)+(text-colour:green)[&amp;#10004; ]Hank &#39;&#39;did&#39;&#39; (if: $help is 0)[&#39;&#39;not &#39;&#39;] manage to get a help from a young creature during his journey.
 (if: (history: where its name contains &quot;Rope&quot;)&#39;s length is 0)+(text-colour:red)[&amp;#10008; ](if: (history: where its name contains &quot;Rope&quot;)&#39;s length &gt; 0)+(text-colour:green)[&amp;#10004; ]Hank &#39;&#39;did&#39;&#39; (if:(history: where its name contains &quot;Rope&quot;)&#39;s length is 0)[&#39;&#39;not &#39;&#39;]get bit by a snake-like creature during his journey.
-(if: $history &gt; 40)+(text-colour:red)[&amp;#10008; ](if: $history &lt; 41)+(text-colour:green)[&amp;#10004; ]You visited $history unique passages on this journey until the epilogue which does (if: $history &gt; 40)[&#39;&#39;not &#39;&#39;]qualify as a speed-run.
+(if: $history &gt; 30)+(text-colour:red)[&amp;#10008; ](if: $history &lt; 31)+(text-colour:green)[&amp;#10004; ]You visited $history unique passages on this journey until the epilogue which does (if: $history &gt; 30)[&#39;&#39;not &#39;&#39;]qualify as a speed-run.
 ]
 </tw-passagedata><tw-passagedata pid="129" name="Escape options" tags="" position="1650,5675" size="100,100">&quot;Let me think... My hands are tied, so attacking them will likely result in me being stabbed to death almost instantly. I could rush to the forest, but it&#39;s unlikely that I would manage to escape them without any distraction. But what could the distraction be?&quot;
 A moment later, Hank continues, &quot;There&#39;s some nest in the trees right above the path ahead. It looks like a bird&#39;s nest, but I don&#39;t have any good data on the local fauna. It could be anything. But what is interesting is that the guard ahead of me seems very well aware of the nest and as soon as he spotted it, he grabbed his spear into both hands like if he was preparing to defend himself. I might be misenterpretting this but I cannot shake off the feeling that he is extra cautious now. Any recommendation?&quot;
@@ -1358,7 +1384,7 @@ The chieftain approached Hank and spoke in a deep, menacing voice, (text-colour:
 
 
 You can:
-(link:&quot;Start over&quot;)[(restart:)] or [[continue from last checkpoint-&gt;Checkpoint 5]]</tw-passagedata><tw-passagedata pid="139" name="Escort to the meadow" tags="" position="1275,6325" size="100,100">(set: $battery to it -2)The guards escorted Hank to the border of the forest and released him. &quot;I am on the meadow and can clearly see the module from here. The guards are still waiting at the border of the forest and watching me, so I am on my way, straight to the module&quot;, says Hank. &quot;Pfew, that was close wasn&#39;t it?&quot; You can hear relief in Hanks voice.
+(link:&quot;Start over&quot;)[(restart:)] or [[continue from last checkpoint-&gt;Checkpoint 5]]</tw-passagedata><tw-passagedata pid="139" name="Escort to the meadow" tags="" position="1275,6325" size="100,100">(set: $battery to it -2)The guards escorted Hank to the border of the forest and released him. &quot;I am on the meadow and can clearly see the module from here. The guards are still waiting at the border of the forest and watching me, so I am on my way, straight to the module&quot;, says Hank. &quot;Pfew, that was close wasn&#39;t it?&quot; You can hear relief in Hank&#39;s voice.
 
 [[Proceed...-&gt;Approaching module]]
 
